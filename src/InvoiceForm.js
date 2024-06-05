@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './InvoiceForm.css'; // Import CSS file
 
 const InvoiceForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -75,35 +76,45 @@ const InvoiceForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Invoice Form</h2>
-      <div>
-        <label>Seller Name:</label>
-        <input type="text" name="sellerName" value={formData.sellerName} onChange={handleChange} required />
+    <form className="invoice-form" onSubmit={handleSubmit}>
+      <h2 className="form-heading">Invoice Form</h2>
+      <div className="form-field">
+        <label htmlFor="sellerName">Seller Name:</label>
+        <input type="text" id="sellerName" name="sellerName" value={formData.sellerName} onChange={handleChange} required />
       </div>
-      <div>
-        <label>Seller Address:</label>
-        <input type="text" name="sellerAddress" value={formData.sellerAddress} onChange={handleChange} required />
+      <div className="form-field">
+        <label htmlFor="sellerAddress">Seller Address:</label>
+        <input type="text" id="sellerAddress" name="sellerAddress" value={formData.sellerAddress} onChange={handleChange} required />
       </div>
       {/* Add more fields for seller, billing, and shipping details as required */}
       {formData.items.map((item, index) => (
         <div key={index}>
           <h3>Item {index + 1}</h3>
-          <label>Description:</label>
-          <input type="text" name="description" value={item.description} onChange={(e) => handleItemChange(index, e)} />
-          <label>Unit Price:</label>
-          <input type="number" name="unitPrice" value={item.unitPrice} onChange={(e) => handleItemChange(index, e)} />
-          <label>Quantity:</label>
-          <input type="number" name="quantity" value={item.quantity} onChange={(e) => handleItemChange(index, e)} />
-          <label>Discount:</label>
-          <input type="number" name="discount" value={item.discount} onChange={(e) => handleItemChange(index, e)} />
-          <label>Tax Rate:</label>
-          <input type="number" name="taxRate" value={item.taxRate} onChange={(e) => handleItemChange(index, e)} />
+          <div className="form-field">
+            <label htmlFor={`description-${index}`}>Description:</label>
+            <input type="text" id={`description-${index}`} name="description" value={item.description} onChange={(e) => handleItemChange(index, e)} />
+          </div>
+          <div className="form-field">
+            <label htmlFor={`unitPrice-${index}`}>Unit Price:</label>
+            <input type="number" id={`unitPrice-${index}`} name="unitPrice" value={item.unitPrice} onChange={(e) => handleItemChange(index, e)} />
+          </div>
+          <div className="form-field">
+            <label htmlFor={`quantity-${index}`}>Quantity:</label>
+            <input type="number" id={`quantity-${index}`} name="quantity" value={item.quantity} onChange={(e) => handleItemChange(index, e)} />
+          </div>
+          <div className="form-field">
+            <label htmlFor={`discount-${index}`}>Discount:</label>
+            <input type="number" id={`discount-${index}`} name="discount" value={item.discount} onChange={(e) => handleItemChange(index, e)} />
+          </div>
+          <div className="form-field">
+            <label htmlFor={`taxRate-${index}`}>Tax Rate:</label>
+            <input type="number" id={`taxRate-${index}`} name="taxRate" value={item.taxRate} onChange={(e) => handleItemChange(index, e)} />
+          </div>
           <button type="button" onClick={() => removeItem(index)}>Remove Item</button>
         </div>
       ))}
-      <button type="button" onClick={addItem}>Add Item</button>
-      <button type="submit">Generate Invoice</button>
+      <button type="button" className="add-item-btn" onClick={addItem}>Add Item</button>
+      <button type="submit" className="submit-btn">Generate Invoice</button>
     </form>
   );
 };
