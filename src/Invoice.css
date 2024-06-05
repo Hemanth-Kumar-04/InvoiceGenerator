@@ -2,13 +2,34 @@
     max-width: 800px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
+    font-size: 10px;
   }
+.seller-details ,
+.shipping-address,
+.order-det,
+.pan-gst{
+    text-align: left;
+}
 
-  
-  .invoice-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.order-det{
+    margin-top: 150px;
+}
+
+.order-container {
+    margin-top: -50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bold-p{
+    font-weight: bold;
+}
+
+
+.billing-address, 
+.order-details {
+    text-align: right;
+}
   
   .section-title {
     margin-top: 20px;
@@ -17,9 +38,7 @@
   }
   
   .seller-details,
-  .billing-address,
-  .shipping-address,
-  .order-details {
+  .billing-address{
     width: 48%;
     display: inline-block;
     vertical-align: top;
@@ -30,10 +49,7 @@
     margin-bottom: 20px;
   }
   
-  .billing-address,
-  .shipping-address {
-    margin-left: 4%;
-  }
+
   
   .pan-gst-ut {
     display: flex;
@@ -59,11 +75,12 @@
   
   .amount-in-words {
     margin-top: 20px;
+    text-align: left;
   }
   
   .signature {
     margin-top: 20px;
-    text-align: center;
+    text-align: right;
   }
   
   #download-btn {

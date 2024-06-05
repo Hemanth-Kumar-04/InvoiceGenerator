@@ -1,7 +1,8 @@
 import React from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import './Invoice.css'
+import './Invoice.css';
+
 const Invoice = ({ data }) => {
   const calculateNetAmount = (unitPrice, quantity, discount) => unitPrice * quantity - discount;
   const calculateTaxAmount = (netAmount, taxRate) => (netAmount * taxRate) / 100;
@@ -78,45 +79,53 @@ const Invoice = ({ data }) => {
     <div className="invoice" id="invoice">
       <h2 className="invoice-title">Invoice</h2>
       <div className="seller-details">
-        <h3 className="section-title">Sold By</h3>
-        <p>Name of the Company: {data.sellerName}</p>
-        <p>Address: {data.sellerAddress}</p>
-        <p>City: {data.sellerCity}</p>
-        <p>State: {data.sellerState}</p>
-        <p>PAN No: {data.sellerPAN}</p>
-        <p>GST Registration No: {data.sellerGST}</p>
+        <p className="bold-p">Sold By:</p>
+        <p> {data.sellerName}</p>
+        <p>{data.sellerAddress}</p>
+        <p>{data.sellerCity}</p>
+        <p>{data.sellerState}</p>
       </div>
       <div className="billing-address">
-        <h3 className="section-title">Billing Address</h3>
-        <p>Name: {data.billingName}</p>
-        <p>Address: {data.billingAddress}</p>
-        <p>City: {data.billingCity}</p>
-        <p>State: {data.billingState}</p>
-        <p>UT Code: {data.billingStateCode}</p>
+        <p className="bold-p">Billing Address:</p>
+        <p>{data.billingName}</p>
+        <p>{data.billingAddress}</p>
+        <p>{data.billingCity}</p>
+        <p>{data.billingState}</p>
+        <p className='bold-p'>State/UT Code: {data.billingStateCode}</p>
       </div>
       <div className="pan-gst-ut">
-        <p>PAN No: {data.sellerPAN}</p>
-        <p>GST Registration No: {data.sellerGST}</p>
-        <p>UT Code: {data.billingStateCode}</p>
+        <div className='pan-gst'>
+
+        <p className='bold-p'>PAN No: {data.sellerPAN}</p>
+        <p className='bold-p' >GST Registration No: {data.sellerGST}</p>
+        </div>
       </div>
-      <div className="shipping-address">
-        <h3 className="section-title">Shipping Address</h3>
-        <p>Name: {data.shippingName}</p>
-        <p>Address: {data.shippingAddress}</p>
-        <p>City: {data.shippingCity}</p>
-        <p>State: {data.shippingState}</p>
-        <p>UT Code: {data.shippingStateCode}</p>
+
+      <div className='order-container'>
+      <div className='order-det'>
+        <p className="bold-p">Order Number: {data.orderNo}</p>
+        <p className="bold-p">Order Date: {data.orderDate}</p>
       </div>
+      
       <div className="order-details">
-        <h3 className="section-title">Order Details</h3>
-        <p>Place of Supply: {data.placeOfSupply}</p>
-        <p>Place of Delivery: {data.placeOfDelivery}</p>
-        <p>Order Number: {data.orderNo}</p>
-        <p>Order Date: {data.orderDate}</p>
-        <p>Invoice Number: {data.invoiceNo}</p>
-        <p>Invoice Details: {data.invoiceDetails}</p>
-        <p>Invoice Date: {data.invoiceDate}</p>
+        <p className="bold-p">Shipping Address</p>
+        <p>{data.shippingName}</p>
+        <p>{data.shippingAddress}</p>
+        <p>{data.shippingCity}</p>
+        <p>{data.shippingState}</p>
+        <p className='bold-p'>State/UT Code: {data.shippingStateCode}</p>
+
+      
+        <p className='bold-p' >Place of Supply: {data.placeOfSupply}</p>
+        <p className='bold-p'>Place of Delivery: {data.placeOfDelivery}</p>
+       
+        <p className='bold-p'>Invoice Number: {data.invoiceNo}</p>
+        <p className='bold-p'>Invoice Details: {data.invoiceDetails}</p>
+        <p className='bold-p'>Invoice Date: {data.invoiceDate}</p>
       </div>
+     
+      </div>
+
       <table className="item-table">
         <thead>
           <tr>
