@@ -1,0 +1,82 @@
+.invoice {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+
+  
+  .invoice-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    margin-top: 20px;
+    font-size: 18px;
+    text-decoration: underline;
+  }
+  
+  .seller-details,
+  .billing-address,
+  .shipping-address,
+  .order-details {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .seller-details,
+  .pan-gst-ut {
+    margin-bottom: 20px;
+  }
+  
+  .billing-address,
+  .shipping-address {
+    margin-left: 4%;
+  }
+  
+  .pan-gst-ut {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .order-details {
+    clear: both;
+  }
+  
+  .item-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .item-table th,
+  .item-table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .amount-in-words {
+    margin-top: 20px;
+  }
+  
+  .signature {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #download-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #download-btn:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,15 +1,11 @@
 import React from 'react';
-// import './Invoice.css';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-
+import './Invoice.css'
 const Invoice = ({ data }) => {
   const calculateNetAmount = (unitPrice, quantity, discount) => unitPrice * quantity - discount;
   const calculateTaxAmount = (netAmount, taxRate) => (netAmount * taxRate) / 100;
   const calculateTotalAmount = (netAmount, taxAmount) => netAmount + taxAmount;
-
-  const getTaxType = (placeOfSupply, placeOfDelivery) =>
-    placeOfSupply === placeOfDelivery ? 'CGST/SGST' : 'IGST';
 
   const renderItems = () => {
     return data.items.map((item, index) => {
@@ -19,10 +15,10 @@ const Invoice = ({ data }) => {
 
       return (
         <tr key={index}>
+          <td>{index + 1}</td>
           <td>{item.description}</td>
           <td>{item.unitPrice}</td>
           <td>{item.quantity}</td>
-          <td>{item.discount}</td>
           <td>{netAmount.toFixed(2)}</td>
           <td>{item.taxRate}%</td>
           <td>{taxAmount.toFixed(2)}</td>
@@ -80,23 +76,54 @@ const Invoice = ({ data }) => {
   
   return (
     <div className="invoice" id="invoice">
-      <h2>Invoice</h2>
+      <h2 className="invoice-title">Invoice</h2>
       <div className="seller-details">
-        <h3>Seller Details</h3>
-        <p>{data.sellerName}</p>
-        <p>{data.sellerAddress}</p>
-        <p>{data.sellerCity}, {data.sellerState}, {data.sellerPincode}</p>
-        <p>PAN: {data.sellerPAN}</p>
-        <p>GST: {data.sellerGST}</p>
+        <h3 className="section-title">Sold By</h3>
+        <p>Name of the Company: {data.sellerName}</p>
+        <p>Address: {data.sellerAddress}</p>
+        <p>City: {data.sellerCity}</p>
+        <p>State: {data.sellerState}</p>
+        <p>PAN No: {data.sellerPAN}</p>
+        <p>GST Registration No: {data.sellerGST}</p>
       </div>
-      {/* Add more sections for billing, shipping, order, and invoice details */}
-      <table>
+      <div className="billing-address">
+        <h3 className="section-title">Billing Address</h3>
+        <p>Name: {data.billingName}</p>
+        <p>Address: {data.billingAddress}</p>
+        <p>City: {data.billingCity}</p>
+        <p>State: {data.billingState}</p>
+        <p>UT Code: {data.billingStateCode}</p>
+      </div>
+      <div className="pan-gst-ut">
+        <p>PAN No: {data.sellerPAN}</p>
+        <p>GST Registration No: {data.sellerGST}</p>
+        <p>UT Code: {data.billingStateCode}</p>
+      </div>
+      <div className="shipping-address">
+        <h3 className="section-title">Shipping Address</h3>
+        <p>Name: {data.shippingName}</p>
+        <p>Address: {data.shippingAddress}</p>
+        <p>City: {data.shippingCity}</p>
+        <p>State: {data.shippingState}</p>
+        <p>UT Code: {data.shippingStateCode}</p>
+      </div>
+      <div className="order-details">
+        <h3 className="section-title">Order Details</h3>
+        <p>Place of Supply: {data.placeOfSupply}</p>
+        <p>Place of Delivery: {data.placeOfDelivery}</p>
+        <p>Order Number: {data.orderNo}</p>
+        <p>Order Date: {data.orderDate}</p>
+        <p>Invoice Number: {data.invoiceNo}</p>
+        <p>Invoice Details: {data.invoiceDetails}</p>
+        <p>Invoice Date: {data.invoiceDate}</p>
+      </div>
+      <table className="item-table">
         <thead>
           <tr>
+            <th>SI No.</th>
             <th>Description</th>
             <th>Unit Price</th>
-            <th>Quantity</th>
-            <th>Discount</th>
+            <th>Qty</th>
             <th>Net Amount</th>
             <th>Tax Rate</th>
             <th>Tax Amount</th>
@@ -108,13 +135,15 @@ const Invoice = ({ data }) => {
           {renderTotals()}
         </tbody>
       </table>
+      <div className="amount-in-words">
+        <h3>Amount in Words</h3>
+        {/* Add logic to convert amount to words */}
+      </div>
       <div className="signature">
-        <p>For {data.sellerName}:</p>
+        <p>Authorised Signature</p>
         <img src={data.signatureImage} alt="Signature" />
-        <p>Authorised Signatory</p>
       </div>
       <button id="download-btn" onClick={downloadPDF}>Download PDF</button>
-
     </div>
   );
 };
