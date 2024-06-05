@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Zoho Invoice Generator</h1>
+        <h1>Invoice Generator</h1>
       </header>
       <div className="container">
         <div className="form-container">
