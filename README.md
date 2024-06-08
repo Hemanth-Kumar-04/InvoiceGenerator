@@ -9,8 +9,11 @@ To run this project locally on your machine, follow these steps:
 
 2. Navigate into the project directory:
     cd personal-bookshelf-react
+
 3.Install dependencies using npm or yarn:
     npm install (or) yarn install
+
 4.Start the development server:
     npm start (or) yarn start
+
 5.Open your browser and visit http://localhost:3000 to view the application.
