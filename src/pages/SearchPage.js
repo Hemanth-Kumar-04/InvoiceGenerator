@@ -44,8 +44,11 @@ const SearchPage = () => {
 
     return (
         <div className="search-page">
-            <BookSearch onSearch={handleSearch} />
+            <div>
+
+            <BookSearch onSearch={handleSearch}/>
             <Link to="/bookshelf" className="navigation-button">Go to My Bookshelf</Link>
+            </div>
             <div className="book-results">
                 {books.map((book, index) => (
                     <BookCard key={index} book={book} onAdd={addToBookshelf} />
