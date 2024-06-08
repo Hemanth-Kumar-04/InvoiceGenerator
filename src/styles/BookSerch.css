@@ -22,3 +22,16 @@
 .book-search input::placeholder {
     color: #999;
 }
+
+
+@media only screen and (max-width: 768px) {
+.book-search {
+    flex-direction: column; /* Align items in a column when screen size decreases */
+    align-items: stretch; /* Stretch items to full width */
+   width:40%
+}
+
+
+
+
+}
