@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BookSearch from '../components/BookSearch';
 import BookCard from '../components/BookCard';
 import { Link } from 'react-router-dom';
-import '../styles/SearchPage.css'; // Import the styles
+import '../styles/SearchPage.css';
 
 const SearchPage = () => {
     const [books, setBooks] = useState([]);
@@ -45,12 +45,12 @@ const SearchPage = () => {
     return (
         <div className="search-page">
             <BookSearch onSearch={handleSearch} />
+            <Link to="/bookshelf" className="navigation-button">Go to My Bookshelf</Link>
             <div className="book-results">
                 {books.map((book, index) => (
                     <BookCard key={index} book={book} onAdd={addToBookshelf} />
                 ))}
             </div>
-            <Link to="/bookshelf">Go to My Bookshelf</Link>
         </div>
     );
 };
