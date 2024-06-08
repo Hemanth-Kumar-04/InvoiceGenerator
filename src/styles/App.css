@@ -1,0 +1,120 @@
+/* App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.search-page, .bookshelf-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.book-search-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.book-search {
+  flex: 1 1 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.book-search input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.book-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.book-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(33% - 40px);
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
+.book-card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.book-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.book-card button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bookshelf-button {
+  padding: 10px 20px;
+  max-height:20px ;
+  font-size: 14px;
+  color: white;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 20%;
+  margin-bottom: 5%;
+}
+
+.bookshelf-button:hover {
+  background-color: #218838;
+}
+
+
+/* Responsive Styles */
+
+@media only screen and (max-width: 768px) {
+  .book-card {
+      flex-basis: calc(50% - 40px);
+      max-width: none;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .book-card {
+      flex-basis: calc(100% - 40px);
+  }
+
+  .book-search {
+      max-width: none;
+  }
+  .bookshelf-button {
+    padding: 10px;
+    font-size: 12px;
+    margin-left: 0;
+}
+}

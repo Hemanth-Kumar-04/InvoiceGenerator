@@ -1,30 +1,18 @@
-import React, { useState } from 'react';
-import './App.css';
-import InvoiceForm from './InvoiceForm';
-import Invoice from './Invoice';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SearchPage from './pages/SearchPage';
+import BookshelfPage from './pages/BookshelfPage';
 
-function App() {
-  const [invoiceData, setInvoiceData] = useState(null);
 
-  const handleInvoiceSubmit = (data) => {
-    setInvoiceData(data);
-  };
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Zoho Invoice Generator</h1>
-      </header>
-      <div className="container">
-        <div className="form-container">
-          <InvoiceForm onSubmit={handleInvoiceSubmit} />
-        </div>
-        <div className="invoice-container">
-          {invoiceData && <Invoice data={invoiceData} />}
-        </div>
-      </div>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<SearchPage />} />
+                <Route path="/bookshelf" element={<BookshelfPage />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
