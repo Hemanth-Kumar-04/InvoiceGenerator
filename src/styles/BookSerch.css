@@ -1,7 +1,8 @@
 /* BookSearch.css */
 
 .book-search {
-    width: 10%;
+    margin-left: 20%;
+    width: 20%;
 }
 
 .book-search input {

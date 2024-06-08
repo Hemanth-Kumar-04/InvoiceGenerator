@@ -3,6 +3,16 @@
 .search-page {
     padding: 20px;
 }
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search-container > * {
+    margin-right: 10px; /* Add spacing between elements */
+}
 
 .book-results {
     display: grid;
@@ -11,6 +21,7 @@
 }
 
 .navigation-button {
+    margin-left: 20%;
     margin-bottom: 10px;
     display: inline-block;
     margin-top: 20px;
